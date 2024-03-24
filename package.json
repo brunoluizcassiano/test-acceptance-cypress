@@ -1,7 +1,6 @@
 {
   "name": "test-acceptance-cypress",
-  "version": "1.0.24",
-  "type": "module",
+  "version": "1.0.25",
   "description": "Framework de automação base utilizando cypress",
   "main": "index.js",
   "scripts": {
@@ -9,11 +8,15 @@
     "cypress:run": "node ./scripts/run.js",
     "cypress:open": "node ./scripts/openCypress.js"
   },
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git@github.com:brunoluizcassiano/test-acceptance-cypress.git"
   },
-  "keywords": [],
+  "keywords": [
+    "bdd",
+    "tests"
+  ],
   "author": "Bruno Luiz Cassiano do Santos",
   "license": "ISC",
   "bugs": {
