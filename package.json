@@ -6,9 +6,17 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:brunoluizcassiano/test-acceptance-cypress.git"
+  },
   "keywords": [],
   "author": "Bruno Luiz Cassiano",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brunoluizcassiano/test-acceptance-cypress/issues"
+  },
+  "homepage": "https://github.com/brunoluizcassiano/test-acceptance-cypress#readme",
   "dependencies": {
     "cypress": "^13.7.1",
     "jest": "^29.7.0",
