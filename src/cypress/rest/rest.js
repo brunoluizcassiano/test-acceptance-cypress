@@ -8,19 +8,19 @@ function readTable(data = {}) {
     return object(rest(data.rawTable || []));
 };s
 
-class restFull {
+export default class restFull {
 
-    setResponseBody = _responseBody => {
+    static setResponseBody = _responseBody => {
         responseBody = _responseBody;
     };
 
-    getResponseBody = _ => responseBody;
+    static getResponseBody = _ => responseBody;
 
-    setResponseStatusCode = _responseStatusCode => {
+    static setResponseStatusCode = _responseStatusCode => {
         responseStatusCode = _responseStatusCode;
     };
 
-    getResponseStatusCode = _ => responseStatusCode;
+    static getResponseStatusCode = _ => responseStatusCode;
 
     /**
      * STANDARD REST CALL, MUST BE PASSED THE VERB, URI AND PATH
@@ -30,7 +30,7 @@ class restFull {
      * @param {*} path - PATH (EndPoint)
      * @param {*} log  - LOG (true or false), default true
      */
-    requestRestFull(alias, reqType, uri, path, log = true){
+    static requestRestFull(alias, reqType, uri, path, log = true){
 
         cy.api({
             method: reqType,
@@ -42,10 +42,10 @@ class restFull {
             this.setResponseBody(resp.body);
 
             //SET LOG
-            logRest.setRequest(uri, path, reqType, resp.status, resp.body);
+            logRest.setRequet(uri, path, reqType, resp.status, resp.body);
         })
 
     };
 };
 
-export default restFull;
+// export default restFull;
