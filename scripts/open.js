@@ -1,7 +1,7 @@
 console.log("Script sendo executado...");
 
-const subBiblioteca = require('./index');
+const subBiblioteca = require('../index');
 
-subBiblioteca.runTests();
+subBiblioteca.openTests();
 
 console.log("Script concluido.");

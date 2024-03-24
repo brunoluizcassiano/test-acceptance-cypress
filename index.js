@@ -10,7 +10,7 @@ function runTests(){
     })
 }
 
-function opemTests(){
+function openTests(){
     cypress.open().then((results) => {
         console.log(results);
     }).catch((err) => {
@@ -18,4 +18,4 @@ function opemTests(){
     })
 }
 
-module.exports = { runTests, opemTests };
+module.exports = { runTests, openTests };
