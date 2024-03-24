@@ -54,4 +54,4 @@ class restFull {
     };
 };
 
-export default restFull;
+module.export = {restFull};
