@@ -1,12 +1,12 @@
-import {object, flatten, rest} from 'underscore';
+// import {object, flatten, rest} from 'underscore';
 import logRest from './restLog';
 
 let responseStatusCode;
 let responseBody;
 
-function readTable(data = {}) {
-    return object(rest(data.rawTable || []));
-};
+// function readTable(data = {}) {
+//     return object(rest(data.rawTable || []));
+// };
 
 // export default class restFull {
 class restFull {
