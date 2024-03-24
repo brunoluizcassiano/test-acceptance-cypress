@@ -1,11 +1,11 @@
 {
   "name": "test-acceptance-cypress",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Framework de automação base utilizando cypress",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cypress:run": "node scripts.js"
+    "start": "node script.js"
   },
   "repository": {
     "type": "git",
