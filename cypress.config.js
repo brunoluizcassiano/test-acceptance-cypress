@@ -11,7 +11,7 @@ module.exports = defineConfig({
     video: false,
     chromeWebSecurity: false,
     setupNodeEvents(on, config) {
-      // implement node event listeners here
+      on('file:preprocessor', cucumber())
     },
   },
 });
