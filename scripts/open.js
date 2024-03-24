@@ -2,6 +2,6 @@ console.log("Script sendo executado...");
 
 const subBiblioteca = require('../index');
 
-subBiblioteca.openTests();
+subBiblioteca.openCypress();
 
 console.log("Script concluido.");

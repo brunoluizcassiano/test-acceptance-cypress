@@ -1,21 +1,30 @@
 console.log("Biblioteca principal carregada");
 
 const cypress = require('cypress');
+const path = require('path');
 
 function runTests(){
-    cypress.run().then((results) => {
+    const options = {
+        configFile: path.resolve(__dirname, 'cypress.config.js')
+    };
+
+    return cypress.run(options).then((results) => {
         console.log(results);
     }).catch((err) => {
         console.error(err);
     })
 }
 
-function openTests(){
-    cypress.open().then((results) => {
+function openCypress(){
+    const options = {
+        configFile: path.resolve(__dirname, 'cypress.config.js')
+    };
+    
+    return cypress.open(options).then((results) => {
         console.log(results);
     }).catch((err) => {
         console.error(err);
     })
 }
 
-module.exports = { runTests, openTests };
+module.exports = { runTests, openCypress };
