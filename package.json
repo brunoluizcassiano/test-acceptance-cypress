@@ -1,6 +1,6 @@
 {
   "name": "test-acceptance-cypress",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "Framework de automação base utilizando cypress",
   "main": "index.js",
   "scripts": {
@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/brunoluizcassiano/test-acceptance-cypress#readme",
   "cypress-cucumber-preprocessor": {
-    "stepDefinitions": "cypress/integration/*"
+    "stepDefinitions": "../../cypress/integration/*"
   },
   "dependencies": {
     "cypress": "^13.7.1",
