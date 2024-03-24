@@ -1,12 +1,14 @@
-import {object, flatten, rest} from 'underscore';
-import logRest from './restLog';
+// import {object, flatten, rest} from 'underscore';
+// import logRest from './restLog';
+
+const logRest = require('./restLog').default
 
 let responseStatusCode;
 let responseBody;
 
-function readTable(data = {}) {
-    return object(rest(data.rawTable || []));
-};
+// function readTable(data = {}) {
+//     return object(rest(data.rawTable || []));
+// };
 
 class restFull {
 

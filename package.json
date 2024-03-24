@@ -1,6 +1,6 @@
 {
   "name": "test-acceptance-cypress",
-  "version": "1.0.26",
+  "version": "1.0.27",
   "description": "Framework de automação base utilizando cypress",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,6 @@
     "cypress:run": "node ./scripts/run.js",
     "cypress:open": "node ./scripts/openCypress.js"
   },
-  "type": "module",
   "repository": {
     "type": "git",
     "url": "git@github.com:brunoluizcassiano/test-acceptance-cypress.git"
