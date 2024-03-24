@@ -1,18 +1,18 @@
 {
   "name": "test-acceptance-cypress",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Framework de automação base utilizando cypress",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cypress:open": "cypress open"
+    "cypress:run": "node scripts.js"
   },
   "repository": {
     "type": "git",
     "url": "git@github.com:brunoluizcassiano/test-acceptance-cypress.git"
   },
   "keywords": [],
-  "author": "Bruno Luiz Cassiano",
+  "author": "Bruno Luiz Cassiano do Santos",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/brunoluizcassiano/test-acceptance-cypress/issues"
