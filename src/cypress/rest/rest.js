@@ -1,14 +1,15 @@
-// import {object, flatten, rest} from 'underscore';
-// import logRest from './restLog';
+import {object, flatten, rest} from 'underscore';
+import logRest from './restLog';
 
 let responseStatusCode;
 let responseBody;
 
-// function readTable(data = {}) {
-//     return object(rest(data.rawTable || []));
-// };
+function readTable(data = {}) {
+    return object(rest(data.rawTable || []));
+};
 
-export default class restFull {
+// export default class restFull {
+class restFull {
 
     constructor(){
 
@@ -52,7 +53,7 @@ export default class restFull {
     };
 };
 
-// export default restFull;
+export default restFull;
 
     // function setResponseBody (_responseBody){
     //     responseBody = _responseBody;
