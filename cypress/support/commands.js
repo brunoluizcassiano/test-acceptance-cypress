@@ -26,11 +26,12 @@
 
 const restFull = require('../../src/cypress/rest/rest');
 
-/**
+
+Cypress.Commands.add('setResponseBody', {prevSubject: false}, (responseBody) => {
+    /**
      * Function to set response
      * @param {*} - responseBody 
      */
-Cypress.Commands.add('setResponseBody', (responseBody) => {
     restFull.setResponseBody(responseBody);
 });
 
