@@ -1,10 +1,10 @@
 // import {object, flatten, rest} from 'underscore';
 // import logRest from './restLog';
 
-const logRest = require('./restLog').default
+// const logRest = require('./restLog').default
 
-let responseStatusCode;
-let responseBody;
+// let responseStatusCode;
+// let responseBody;
 
 // function readTable(data = {}) {
 //     return object(rest(data.rawTable || []));
@@ -12,21 +12,21 @@ let responseBody;
 
 class restFull {
 
-    constructor(){
+    // constructor(){
 
-    }
+    // }
 
-    static setResponseBody = _responseBody => {
-        responseBody = _responseBody;
-    };
+    // static setResponseBody = _responseBody => {
+    //     responseBody = _responseBody;
+    // };
 
-    static getResponseBody = _ => responseBody;
+    // static getResponseBody = _ => responseBody;
 
-    static setResponseStatusCode = _responseStatusCode => {
-        responseStatusCode = _responseStatusCode;
-    };
+    // static setResponseStatusCode = _responseStatusCode => {
+    //     responseStatusCode = _responseStatusCode;
+    // };
 
-    static getResponseStatusCode = _ => responseStatusCode;
+    // static getResponseStatusCode = _ => responseStatusCode;
 
     /**
      * STANDARD REST CALL, MUST BE PASSED THE VERB, URI AND PATH
@@ -44,14 +44,14 @@ class restFull {
             failOnStatusCode: false,
             log: log
         }).as(alias).then((resp) => {
-            this.setResponseStatusCode(resp.status);
-            this.setResponseBody(resp.body);
+            // this.setResponseStatusCode(resp.status);
+            // this.setResponseBody(resp.body);
 
             //SET LOG
-            logRest.setRequet(uri, path, reqType, resp.status, resp.body);
+            // logRest.setRequet(uri, path, reqType, resp.status, resp.body);
         })
 
     };
 };
 
-module.export = {restFull};
+module.export = restFull;
