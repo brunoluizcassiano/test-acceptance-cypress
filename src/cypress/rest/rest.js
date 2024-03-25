@@ -10,7 +10,7 @@
 //     return object(rest(data.rawTable || []));
 // };
 
-class restFull {
+// class restFull {
 
     // constructor(){
 
@@ -36,7 +36,7 @@ class restFull {
      * @param {*} path - PATH (EndPoint)
      * @param {*} log  - LOG (true or false), default true
      */
-    static requestRestFull(alias, reqType, uri, path, log = true){
+    function requestRestFull(alias, reqType, uri, path, log = true){
 
         cy.api({
             method: reqType,
@@ -52,6 +52,9 @@ class restFull {
         })
 
     };
-};
+// };
 
-module.export = restFull;
+// export default restFull;
+// module.export = restFull;
+
+module.exports = requestRestFull;
