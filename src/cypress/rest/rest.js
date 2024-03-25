@@ -10,7 +10,7 @@ let responseBody;
 
 class restFull {
 
-    // constructor(){}
+    constructor(){}
 
     /**
      * Function to set response
