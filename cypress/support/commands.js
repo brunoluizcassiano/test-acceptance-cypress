@@ -72,3 +72,29 @@ Cypress.Commands.add('requestRestFull', {prevSubject: false}, (alias, reqType, u
      */
     restFull.requestRestFull(alias, reqType, uri, path);
 });
+
+Cypress.Commands.add('requestRestFullWithHeaders', {prevSubject: false}, (alias, reqType, uri, path, headers) => {
+   /**
+     * STANDARD REST CALL WITH HEADERS, MUST CONTAIN VERO, URI AND PATH
+     * @param {*} alias - Name to request
+     * @param {*} reqType - Method (Ex: POST, GET, PUT or DELETE) verb
+     * @param {*} uri - URI (BaseUrl)
+     * @param {*} path - PATH (EndPoint)
+     * @param {*} headers - Headers
+     * @param {*} log - LOG (true or false), default true
+     */
+    restFull.requestRestFullWithHeaders(alias, reqType, uri, path, headers);
+});
+
+Cypress.Commands.add('requestRestFullFileData', {prevSubject: false}, (alias, reqType, uri, path, fileData) => {
+    /**
+      * STANDARD REST CALL WITH HEADERS, MUST CONTAIN VERO, URI AND PATH
+      * @param {*} alias - Name to request
+      * @param {*} reqType - Method (Ex: POST, GET, PUT or DELETE) verb
+      * @param {*} uri - URI (BaseUrl)
+      * @param {*} path - PATH (EndPoint)
+      * @param {*} headers - Headers
+      * @param {*} log - LOG (true or false), default true
+      */
+     restFull.requestRestFullFileData(alias, reqType, uri, path, fileData);
+ });
