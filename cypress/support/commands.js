@@ -26,6 +26,29 @@
 
 const restFull = require('../../src/cypress/rest/rest');
 
-Cypress.Commands.add('requestRestFull', (alias, reqType, uri, path) => {
+/**
+     * Function to set response
+     * @param {*} - responseBody 
+     */
+Cypress.Commands.add('tag.setResponseBody', (responseBody) => {
+    restFull.setResponseBody(responseBody);
+});
+
+
+
+
+
+
+
+
+/**
+     * STANDARD REST CALL, MUST BE PASSED THE VERB, URI AND PATH
+     * @param {*} alias - Name to request
+     * @param {*} reqType - Method (Ex: POST, GET, PUT or DELETE) verb
+     * @param {*} uri - URI (BaseUrl)
+     * @param {*} path - PATH (EndPoint)
+     * @param {*} log  - LOG (true or false), default true
+     */
+Cypress.Commands.add('tag.requestRestFull', (alias, reqType, uri, path) => {
     restFull.requestRestFull(alias, reqType, uri, path);
 });

@@ -3,8 +3,8 @@
 
 // const logRest = require('./restLog').default
 
-// let responseStatusCode;
-// let responseBody;
+let responseStatusCode;
+let responseBody;
 
 // function readTable(data = {}) {
 //     return object(rest(data.rawTable || []));
@@ -14,17 +14,35 @@ class restFull {
 
     constructor(){}
 
-    // static setResponseBody = _responseBody => {
-    //     responseBody = _responseBody;
-    // };
+    /**
+     * Function to set response
+     * @param {*} - responseBody 
+     */
+    static setResponseBody = _responseBody => {
+        responseBody = _responseBody;
+    };
 
-    // static getResponseBody = _ => responseBody;
+    /**
+     * Function to consult the return in the response
+     * @param {*} - responseBody
+     * @returns - responseBody
+     */
+    static getResponseBody = _ => responseBody;
 
-    // static setResponseStatusCode = _responseStatusCode => {
-    //     responseStatusCode = _responseStatusCode;
-    // };
+    /**
+     * Function to set status code
+     * @param {*} - responseStatusCode 
+     */
+    static setResponseStatusCode = _responseStatusCode => {
+        responseStatusCode = _responseStatusCode;
+    };
 
-    // static getResponseStatusCode = _ => responseStatusCode;
+    /**
+     * Function to consult the return in the status code
+     * @param {*} - responseStatusCode 
+     * @returns - responseStatusCode 
+     */
+    static getResponseStatusCode = _ => responseStatusCode;
 
     /**
      * STANDARD REST CALL, MUST BE PASSED THE VERB, URI AND PATH
@@ -42,8 +60,8 @@ class restFull {
             failOnStatusCode: false,
             log: log
         }).as(alias).then((resp) => {
-            // this.setResponseStatusCode(resp.status);
-            // this.setResponseBody(resp.body);
+            this.setResponseStatusCode(resp.status);
+            this.setResponseBody(resp.body);
 
             //SET LOG
             // logRest.setRequet(uri, path, reqType, resp.status, resp.body);
@@ -53,6 +71,3 @@ class restFull {
 };
 
 export default restFull;
-// module.export = restFull;
-
-// module.exports = requestRestFull;
