@@ -23,3 +23,9 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+const restFull = require('../../src/cypress/rest/rest');
+
+Cypress.Commands.add('requestRestFull', (alias, reqType, uri, path) => {
+    restFull.requestRestFull(alias, reqType, uri, path);
+});

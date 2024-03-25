@@ -10,11 +10,9 @@
 //     return object(rest(data.rawTable || []));
 // };
 
-// class restFull {
+class restFull {
 
-    // constructor(){
-
-    // }
+    constructor(){}
 
     // static setResponseBody = _responseBody => {
     //     responseBody = _responseBody;
@@ -36,7 +34,7 @@
      * @param {*} path - PATH (EndPoint)
      * @param {*} log  - LOG (true or false), default true
      */
-    function requestRestFull(alias, reqType, uri, path, log = true){
+    static requestRestFull(alias, reqType, uri, path, log = true){
 
         cy.api({
             method: reqType,
@@ -52,9 +50,9 @@
         })
 
     };
-// };
+};
 
-// export default restFull;
+export default restFull;
 // module.export = restFull;
 
-module.exports = requestRestFull;
+// module.exports = requestRestFull;
