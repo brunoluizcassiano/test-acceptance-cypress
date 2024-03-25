@@ -19,7 +19,7 @@ const authentications = {
  * @return {void}
  */
 function requestRestFul({requestAlias, uri, path, httpMethod, pathParams = {}, headerParams = {}, queryParams = {}, authNames = [], log = true} = {}) {
-    const path = pathParams ? buildUrl(path, pathParams) : path;
+    const pathUri = pathParams ? buildUrl(path, pathParams) : path;
 
     //remove undefined property values from query and header params
     removeUndefinedProperties(queryParams);
@@ -30,7 +30,7 @@ function requestRestFul({requestAlias, uri, path, httpMethod, pathParams = {}, h
 
     cy.api({
         method: httpMethod,
-        url: uri + path,
+        url: uri + pathUri,
         headers: headerParams,
         qs: queryParams,
         failOnStatusCode: false,
