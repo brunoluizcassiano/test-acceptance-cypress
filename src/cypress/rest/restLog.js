@@ -24,7 +24,7 @@ export default class logRest {
     };
 
     /**
-     * STANDARD REST CALL WITH HEADERS, MUST CONTAIN VERO, URI AND PATH
+     * LOG STANDARD REST CALL WITH HEADERS, MUST CONTAIN VERO, URI AND PATH
      * @param {*} uri - URI (BaseUrl)
      * @param {*} path - PATH (EndPoint)
      * @param {*} reqType - Method (Ex: POST, GET, PUT or DELETE) verb
@@ -48,7 +48,7 @@ export default class logRest {
     };
 
     /**
-     * STANDARD REST CALL WITH BODY, MUST CONTAIN VERO, URI AND PATH
+     * LOG STANDARD REST CALL WITH BODY, MUST CONTAIN VERO, URI AND PATH
      * @param {*} uri - URI (BaseUrl)
      * @param {*} path - PATH (EndPoint)
      * @param {*} reqType - Method (Ex: POST, GET, PUT or DELETE) verb
@@ -63,6 +63,31 @@ export default class logRest {
             "path": path,
             "reqType": reqType,
             "headers": null,
+            "body": body,
+            "statusCode": statusCode,
+            "response": response
+        }
+        cy.writeFile("cypress/fixtures/resultRest.json", (jsonData));
+
+    };
+
+    /**
+     * LOG STANDARD REST CALL WITH HEADER AND BODY, MUST CONTAIN VERO, URI AND PATH
+     * @param {*} uri - URI (BaseUrl)
+     * @param {*} path - PATH (EndPoint)
+     * @param {*} reqType - Method (Ex: POST, GET, PUT or DELETE) verb
+     * @param {*} headers - Headers
+     * @param {*} body - Body
+     * @param {*} statusCode - Status Code
+     * @param {*} response - Response
+     */
+    static setRequetBodyWithHeaders(uri, path, reqType, headers, body, statusCode, response){
+
+        let jsonData = {
+            "uri": uri,
+            "path": path,
+            "reqType": reqType,
+            "headers": headers,
             "body": body,
             "statusCode": statusCode,
             "response": response

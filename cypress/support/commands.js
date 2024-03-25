@@ -24,7 +24,7 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-const restFull = require('../../src/cypress/rest/rest');
+const restFull = require('../../src/cypress/rest/rest').default;
 
 
 Cypress.Commands.add('setResponseBody', {prevSubject: false}, (responseBody) => {

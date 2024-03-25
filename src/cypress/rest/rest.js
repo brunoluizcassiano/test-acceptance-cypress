@@ -10,7 +10,7 @@ let responseBody;
 
 class restFull {
 
-    constructor(){}
+    // constructor(){}
 
     /**
      * Function to set response
@@ -31,7 +31,7 @@ class restFull {
      * Function to set status code
      * @param {*} - responseStatusCode 
      */
-    static setResponseStatusCode = _responseStatusCode => {
+    setResponseStatusCode = _responseStatusCode => {
         responseStatusCode = _responseStatusCode;
     };
 
@@ -40,7 +40,7 @@ class restFull {
      * @param {*} - responseStatusCode 
      * @returns - responseStatusCode 
      */
-    static getResponseStatusCode = _ => responseStatusCode;
+    getResponseStatusCode = _ => responseStatusCode;
 
     /**
      * STANDARD REST CALL, MUST BE PASSED THE VERB, URI AND PATH
@@ -103,7 +103,7 @@ class restFull {
      * @param {*} fileData - File Data
      * @param {*} log  - LOG (true or false), default true
      */
-    static requestRestFullFileData(alias, reqType, uri, path, fileData, log = true){
+    requestRestFullFileData(alias, reqType, uri, path, fileData, log = true){
 
         cy.readFile(fileData, { log: log }).then(bodyData => {
             cy.api({
@@ -118,6 +118,37 @@ class restFull {
     
                 // SET LOG
                 logRest.setRequetBody(uri, path, reqType, bodyData, resp.status, resp.body);
+            })
+        })
+        
+    };
+
+    /**
+     * STANDARD REST CALL WITH HEADERS AND FILE DATA, MUST CONTAIN VERO, URI AND PATH
+     * @param {*} alias - Name to request
+     * @param {*} reqType - Method (Ex: POST, GET, PUT or DELETE) verb
+     * @param {*} uri - URI (BaseUrl)
+     * @param {*} path - PATH (EndPoint)
+     * @param {*} headers - Headers
+     * @param {*} fileData - File Data
+     * @param {*} log - LOG (true or false), default true
+     */
+    static requestRestFullFileDataWithHeaders(alias, reqType, uri, path, headers, fileData, log = true){
+
+        cy.readFile(fileData, { log: log }).then(bodyData => {
+            cy.api({
+                method: reqType,
+                url: uri + path,
+                headers: headers,
+                body: bodyData,
+                failOnStatusCode: false,
+                log: log
+            }).as(alias).then((resp) => {
+                this.setResponseStatusCode(resp.status);
+                this.setResponseBody(resp.body);
+    
+                // SET LOG
+                logRest.setRequetBodyWithHeaders(uri, path, reqType, headers, bodyData, resp.status, resp.body);
             })
         })
         
