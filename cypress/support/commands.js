@@ -30,7 +30,7 @@ const restFull = require('../../src/cypress/rest/rest');
      * Function to set response
      * @param {*} - responseBody 
      */
-Cypress.Commands.add('tag.setResponseBody', (responseBody) => {
+Cypress.Commands.add('setResponseBody', (responseBody) => {
     restFull.setResponseBody(responseBody);
 });
 
@@ -49,6 +49,6 @@ Cypress.Commands.add('tag.setResponseBody', (responseBody) => {
      * @param {*} path - PATH (EndPoint)
      * @param {*} log  - LOG (true or false), default true
      */
-Cypress.Commands.add('tag.requestRestFull', (alias, reqType, uri, path) => {
+Cypress.Commands.add('requestRestFull', (alias, reqType, uri, path) => {
     restFull.requestRestFull(alias, reqType, uri, path);
 });
