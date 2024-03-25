@@ -1,4 +1,4 @@
-class logRest {
+export default class logRest {
 
     /**
      * LOG STANDARD REST CALL, MUST BE PASSED THE VERB, URI AND PATH
@@ -23,5 +23,3 @@ class logRest {
 
     };
 }
-
-module.export = logRest;

@@ -1,7 +1,5 @@
 // import {object, flatten, rest} from 'underscore';
-// import logRest from './restLog';
-
-// const logRest = require('./restLog').default
+import logRest from './restLog';
 
 let responseStatusCode;
 let responseBody;
@@ -63,8 +61,8 @@ class restFull {
             this.setResponseStatusCode(resp.status);
             this.setResponseBody(resp.body);
 
-            //SET LOG
-            // logRest.setRequet(uri, path, reqType, resp.status, resp.body);
+            // SET LOG
+            logRest.setRequet(uri, path, reqType, resp.status, resp.body);
         })
 
     };

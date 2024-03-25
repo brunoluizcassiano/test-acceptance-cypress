@@ -1,6 +1,6 @@
 {
   "name": "test-acceptance-cypress",
-  "version": "1.0.38",
+  "version": "1.0.39",
   "description": "Framework de automação base utilizando cypress",
   "main": "index.js",
   "scripts": {
