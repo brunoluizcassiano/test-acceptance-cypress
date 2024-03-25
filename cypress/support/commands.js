@@ -25,6 +25,7 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 import restFull from "../../src/cypress/rest/rest";
+import { requestRestFul, requestRestFulWithBody, buildCollectionParam } from "../../src/cypress/rest/CyClient";
 
 Cypress.Commands.add('setResponseBody', {prevSubject: false}, (responseBody) => {
     /**
@@ -97,3 +98,37 @@ Cypress.Commands.add('requestRestFullFileData', {prevSubject: false}, (alias, re
       */
      restFull.requestRestFullFileData(alias, reqType, uri, path, fileData);
  });
+
+ Cypress.Commands.add('requestRestFullFileDataWithHeaders', {prevSubject: false}, (alias, reqType, uri, path, headers, fileData) => {
+    /**
+     * STANDARD REST CALL WITH HEADERS AND FILE DATA, MUST CONTAIN VERO, URI AND PATH
+     * @param {*} alias - Name to request
+     * @param {*} reqType - Method (Ex: POST, GET, PUT or DELETE) verb
+     * @param {*} uri - URI (BaseUrl)
+     * @param {*} path - PATH (EndPoint)
+     * @param {*} headers - Headers
+     * @param {*} fileData - File Data
+     * @param {*} log - LOG (true or false), default true
+     */
+     restFull.requestRestFullFileDataWithHeaders(alias, reqType, uri, path, headers, fileData);
+ });
+
+
+ // Lessa
+
+ Cypress.Commands.add('requestRestFul', {prevSubject: false}, ({requestAlias, uri, path, httpMethod, pathParams = {}, headerParams = {}, queryParams = {}, authNames = [], log = true} = {}) => {
+    /**
+     * Makes a RESTful request.
+     *
+     * @param {string} requestAlias - The alias to assign to the request
+     * @param {string} path - The path for the RESTful request
+     * @param {string} httpMethod - The HTTP method for the request
+     * @param {object} [pathParams={}] - The path parameters for the request
+     * @param {object} [headerParams={}] - The header parameters for the request
+     * @param {object} [queryParams={}] - The query parameters for the request
+     * @param {string[]} [authNames=[]] - The authentication names
+     * @param {boolean} [log=true] - Whether to log the request
+     * @return {void}
+     */
+    requestRestFul(requestAlias, uri, path, httpMethod, pathParams, headerParams, queryParams, authNames, log);
+});
