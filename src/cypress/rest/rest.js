@@ -31,7 +31,7 @@ class restFull {
      * Function to set status code
      * @param {*} - responseStatusCode 
      */
-    setResponseStatusCode = _responseStatusCode => {
+    static setResponseStatusCode = _responseStatusCode => {
         responseStatusCode = _responseStatusCode;
     };
 
@@ -40,7 +40,7 @@ class restFull {
      * @param {*} - responseStatusCode 
      * @returns - responseStatusCode 
      */
-    getResponseStatusCode = _ => responseStatusCode;
+    static getResponseStatusCode = _ => responseStatusCode;
 
     /**
      * STANDARD REST CALL, MUST BE PASSED THE VERB, URI AND PATH
@@ -103,7 +103,7 @@ class restFull {
      * @param {*} fileData - File Data
      * @param {*} log  - LOG (true or false), default true
      */
-    requestRestFullFileData(alias, reqType, uri, path, fileData, log = true){
+    static requestRestFullFileData(alias, reqType, uri, path, fileData, log = true){
 
         cy.readFile(fileData, { log: log }).then(bodyData => {
             cy.api({
