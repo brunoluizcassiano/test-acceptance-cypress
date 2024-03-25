@@ -35,14 +35,34 @@ Cypress.Commands.add('setResponseBody', {prevSubject: false}, (responseBody) => 
     restFull.setResponseBody(responseBody);
 });
 
+Cypress.Commands.add('getResponseBody', {prevSubject: false}, () => {
+    /**
+     * Function to consult the return in the response
+     * @param {*} - responseBody
+     * @returns - responseBody
+     */
+    return restFull.getResponseBody();
+});
 
+Cypress.Commands.add('setResponseStatusCode', {prevSubject: false}, (responseStatusCode) => {
+     /**
+     * Function to set status code
+     * @param {*} - responseStatusCode 
+     */
+    restFull.setResponseStatusCode(responseStatusCode);
+});
 
+Cypress.Commands.add('getResponseStatusCode', {prevSubject: false}, () => {
+    /**
+     * Function to consult the return in the status code
+     * @param {*} - responseStatusCode 
+     * @returns - responseStatusCode 
+     */
+    return restFull.getResponseStatusCode();
+});
 
-
-
-
-
-/**
+Cypress.Commands.add('requestRestFull', {prevSubject: false}, (alias, reqType, uri, path) => {
+    /**
      * STANDARD REST CALL, MUST BE PASSED THE VERB, URI AND PATH
      * @param {*} alias - Name to request
      * @param {*} reqType - Method (Ex: POST, GET, PUT or DELETE) verb
@@ -50,6 +70,5 @@ Cypress.Commands.add('setResponseBody', {prevSubject: false}, (responseBody) => 
      * @param {*} path - PATH (EndPoint)
      * @param {*} log  - LOG (true or false), default true
      */
-Cypress.Commands.add('requestRestFull', (alias, reqType, uri, path) => {
     restFull.requestRestFull(alias, reqType, uri, path);
 });
