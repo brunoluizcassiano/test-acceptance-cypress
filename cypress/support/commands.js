@@ -116,7 +116,7 @@ Cypress.Commands.add('requestRestFullFileData', {prevSubject: false}, (alias, re
 
  // Lessa
 
- Cypress.Commands.add('requestRestFul', {prevSubject: false}, ({requestAlias, path, httpMethod, pathParams = {}, headerParams = {}, queryParams = {}, authNames = [], log = true} = {}) => {
+ Cypress.Commands.add('requestRestFul', {prevSubject: false}, ({requestAlias, uri, path, httpMethod, pathParams = {}, headerParams = {}, queryParams = {}, authNames = [], log = true} = {}) => {
     /**
      * Makes a RESTful request.
      *

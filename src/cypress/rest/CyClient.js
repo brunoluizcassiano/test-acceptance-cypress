@@ -1,9 +1,14 @@
 /// <reference types="cypress" />
 
-const authentications = {
-    'APIKey': {type: 'apiKey', 'in': 'query', name: 'key', apiKey: '1ed35c7370a9db40c5620991249bba83'},
-    'APIToken': {type: 'apiKey', 'in': 'query', name: 'token', apiKey: 'ATTAeb37060fbe9c88cd9305b72229b1b7518f8c80d0b011a96b300ead8da6d908d5CC81661D'},
-}
+// const authentications = {
+//     'APIKey': {type: 'apiKey', 'in': 'query', name: 'key', apiKey: '1ed35c7370a9db40c5620991249bba83'},
+//     'APIToken': {type: 'apiKey', 'in': 'query', name: 'token', apiKey: 'ATTAeb37060fbe9c88cd9305b72229b1b7518f8c80d0b011a96b300ead8da6d908d5CC81661D'},
+// }
+
+let authentications = {};
+cy.readFile('resources/authentications.json').then(response => {
+    authentications=response;
+})
 
 /**
  * Makes a RESTful request.
@@ -91,6 +96,7 @@ function removeUndefinedProperties(obj) {
 
 function applyAuth(headers, queryParams, authNames) {
     authNames.forEach((authName) => {
+        //var auth = authentications[authName];
         var auth = authentications[authName];
         switch (auth.type) {
             case 'basic':
