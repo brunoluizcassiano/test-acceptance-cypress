@@ -25,14 +25,22 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 import restFull from "../../src/cypress/rest/rest";
-import { requestRestFul, requestRestFulWithBody, buildCollectionParam } from "../../src/cypress/rest/CyClient";
+import { 
+    setResponseBody,
+    getResponseBody,
+    setResponseStatusCode,
+    getResponseStatusCode,
+    requestRestFul, 
+    requestRestFulWithBody, 
+    buildCollectionParam 
+} from "../../src/cypress/rest/CyClient";
 
 Cypress.Commands.add('setResponseBody', {prevSubject: false}, (responseBody) => {
     /**
      * Function to set response
      * @param {*} - responseBody 
      */
-    restFull.setResponseBody(responseBody);
+    setResponseBody(responseBody)
 });
 
 Cypress.Commands.add('getResponseBody', {prevSubject: false}, () => {
@@ -41,7 +49,7 @@ Cypress.Commands.add('getResponseBody', {prevSubject: false}, () => {
      * @param {*} - responseBody
      * @returns - responseBody
      */
-    return restFull.getResponseBody();
+    return getResponseBody();
 });
 
 Cypress.Commands.add('setResponseStatusCode', {prevSubject: false}, (responseStatusCode) => {
@@ -49,7 +57,7 @@ Cypress.Commands.add('setResponseStatusCode', {prevSubject: false}, (responseSta
      * Function to set status code
      * @param {*} - responseStatusCode 
      */
-    restFull.setResponseStatusCode(responseStatusCode);
+     setResponseStatusCode(responseStatusCode);
 });
 
 Cypress.Commands.add('getResponseStatusCode', {prevSubject: false}, () => {
@@ -58,20 +66,43 @@ Cypress.Commands.add('getResponseStatusCode', {prevSubject: false}, () => {
      * @param {*} - responseStatusCode 
      * @returns - responseStatusCode 
      */
-    return restFull.getResponseStatusCode();
+    return getResponseStatusCode();
 });
 
-Cypress.Commands.add('requestRestFull', {prevSubject: false}, (alias, reqType, uri, path) => {
+Cypress.Commands.add('requestRestFul', {prevSubject: false}, ({requestAlias, uri, path, httpMethod, pathParams = {}, headerParams = {}, queryParams = {}, authNames = [], authenticationsJson = {}, log = true} = {}) => {
     /**
-     * STANDARD REST CALL, MUST BE PASSED THE VERB, URI AND PATH
-     * @param {*} alias - Name to request
-     * @param {*} reqType - Method (Ex: POST, GET, PUT or DELETE) verb
-     * @param {*} uri - URI (BaseUrl)
-     * @param {*} path - PATH (EndPoint)
-     * @param {*} log  - LOG (true or false), default true
+     * Makes a RESTful request.
+     *
+     * @param {string} requestAlias - The alias to assign to the request
+     * @param {string} path - The path for the RESTful request
+     * @param {string} httpMethod - The HTTP method for the request
+     * @param {object} [pathParams={}] - The path parameters for the request
+     * @param {object} [headerParams={}] - The header parameters for the request
+     * @param {object} [queryParams={}] - The query parameters for the request
+     * @param {string[]} [authNames=[]] - The authentication names
+     * @param {boolean} [log=true] - Whether to log the request
+     * @return {void}
      */
-    restFull.requestRestFull(alias, reqType, uri, path);
+    requestRestFul({
+        requestAlias: requestAlias,
+        uri: uri,
+        path: path,
+        httpMethod: httpMethod,
+        pathParams: pathParams,
+        headerParams: headerParams,
+        queryParams: queryParams,
+        authNames: authNames,
+        authenticationsJson: authenticationsJson
+    });
 });
+
+
+
+
+
+
+
+
 
 Cypress.Commands.add('requestRestFullWithHeaders', {prevSubject: false}, (alias, reqType, uri, path, headers) => {
    /**
@@ -112,33 +143,3 @@ Cypress.Commands.add('requestRestFullFileData', {prevSubject: false}, (alias, re
      */
      restFull.requestRestFullFileDataWithHeaders(alias, reqType, uri, path, headers, fileData);
  });
-
-
- // Lessa
-
- Cypress.Commands.add('requestRestFul', {prevSubject: false}, ({requestAlias, uri, path, httpMethod, pathParams = {}, headerParams = {}, queryParams = {}, authNames = [], authenticationsJson = {}, log = true} = {}) => {
-    /**
-     * Makes a RESTful request.
-     *
-     * @param {string} requestAlias - The alias to assign to the request
-     * @param {string} path - The path for the RESTful request
-     * @param {string} httpMethod - The HTTP method for the request
-     * @param {object} [pathParams={}] - The path parameters for the request
-     * @param {object} [headerParams={}] - The header parameters for the request
-     * @param {object} [queryParams={}] - The query parameters for the request
-     * @param {string[]} [authNames=[]] - The authentication names
-     * @param {boolean} [log=true] - Whether to log the request
-     * @return {void}
-     */
-    requestRestFul({
-        requestAlias: requestAlias,
-        uri: uri,
-        path: path,
-        httpMethod: httpMethod,
-        pathParams: pathParams,
-        headerParams: headerParams,
-        queryParams: queryParams,
-        authNames: authNames,
-        authenticationsJson: authenticationsJson
-    });
-});
