@@ -116,7 +116,7 @@ Cypress.Commands.add('requestRestFullFileData', {prevSubject: false}, (alias, re
 
  // Lessa
 
- Cypress.Commands.add('requestRestFul', {prevSubject: false}, ({requestAlias, path, httpMethod, pathParams = {}, headerParams = {}, queryParams = {}, authNames = [], log = true} = {}) => {
+ Cypress.Commands.add('requestRestFul', {prevSubject: false}, ({requestAlias, path, httpMethod, pathParams = {}, headerParams = {}, queryParams = {}, authNames = [], authenticationsJson{}, log = true} = {}) => {
     /**
      * Makes a RESTful request.
      *
@@ -138,6 +138,7 @@ Cypress.Commands.add('requestRestFullFileData', {prevSubject: false}, (alias, re
         pathParams: pathParams,
         headerParams: headerParams,
         queryParams: queryParams,
-        authNames: authNames
+        authNames: authNames,
+        authenticationsJson: authenticationsJson
     });
 });

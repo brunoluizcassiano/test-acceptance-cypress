@@ -1,15 +1,5 @@
 /// <reference types="cypress" />
 
-// const authentications = {
-//     'APIKey': {type: 'apiKey', 'in': 'query', name: 'key', apiKey: '1ed35c7370a9db40c5620991249bba83'},
-//     'APIToken': {type: 'apiKey', 'in': 'query', name: 'token', apiKey: 'ATTAeb37060fbe9c88cd9305b72229b1b7518f8c80d0b011a96b300ead8da6d908d5CC81661D'},
-// }
-
-let authentications = {};
-cy.readFile('resources/autthentications.json').then(resp => {
-    authentications = resp;
-})
-
 /**
  * Makes a RESTful request.
  *
@@ -23,7 +13,7 @@ cy.readFile('resources/autthentications.json').then(resp => {
  * @param {boolean} [log=true] - Whether to log the request
  * @return {void}
  */
-function requestRestFul({requestAlias, uri, path, httpMethod, pathParams = {}, headerParams = {}, queryParams = {}, authNames = [], log = true} = {}) {
+function requestRestFul({requestAlias, uri, path, httpMethod, pathParams = {}, headerParams = {}, queryParams = {}, authNames = [], authenticationsJson = {}, log = true} = {}) {
     const pathUri = pathParams ? buildUrl(path, pathParams) : path;
 
     //remove undefined property values from query and header params
@@ -31,7 +21,7 @@ function requestRestFul({requestAlias, uri, path, httpMethod, pathParams = {}, h
     removeUndefinedProperties(headerParams);
 
     // apply auth
-    applyAuth(headerParams, queryParams, authNames);
+    applyAuth(headerParams, queryParams, authNames, authenticationsJson);
 
     cy.api({
         method: httpMethod,
@@ -94,7 +84,7 @@ function removeUndefinedProperties(obj) {
     Object.keys(obj).forEach(key => obj[key] === undefined && delete obj[key]);
 }
 
-function applyAuth(headers, queryParams, authNames) {
+function applyAuth(headers, queryParams, authNames, authentications = {}) {
     authNames.forEach((authName) => {
         
         var auth = authentications[authName];
