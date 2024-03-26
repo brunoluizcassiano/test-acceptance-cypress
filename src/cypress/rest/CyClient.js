@@ -74,7 +74,7 @@ function requestRestFul({requestAlias, uri, path, httpMethod, pathParams = {}, h
         setResponseBody(resp.body);
 
         // SET LOG
-        logRest.setRequet(uri, path, reqType, resp.status, resp.body);
+        logRest.setRequet(uri, pathUri, httpMethod, resp.status, resp.body);
     });
 }
 
