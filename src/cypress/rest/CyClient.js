@@ -6,8 +6,8 @@
 // }
 
 let authentications = {};
-cy.readFile('resources/authentications.json').then(response => {
-    authentications=response;
+cy.readFile('resources/autthentications.json').then(resp => {
+    authentications = resp;
 })
 
 /**
@@ -96,8 +96,9 @@ function removeUndefinedProperties(obj) {
 
 function applyAuth(headers, queryParams, authNames) {
     authNames.forEach((authName) => {
-        //var auth = authentications[authName];
+        
         var auth = authentications[authName];
+        
         switch (auth.type) {
             case 'basic':
                 if (auth.username || auth.password) {
