@@ -1,5 +1,44 @@
 /// <reference types="cypress" />
 
+import logRest from './restLog';
+
+let responseStatusCode = undefined;
+let responseBody = undefined;
+
+/**
+     * Function to set response
+     * @param {*} - responseBody 
+     */
+function setResponseBody(_responseBody){
+    responseBody = _responseBody;
+};
+
+/**
+     * Function to consult the return in the response
+     * @param {*} - responseBody
+     * @returns - responseBody
+     */
+function getResponseBody(){
+    return responseBody;
+}
+
+/**
+     * Function to set status code
+     * @param {*} - responseStatusCode 
+     */
+function setResponseStatusCode(_responseStatusCode){
+    responseStatusCode = _responseStatusCode;
+};
+
+/**
+     * Function to consult the return in the status code
+     * @param {*} - responseStatusCode 
+     * @returns - responseStatusCode 
+     */
+function getResponseStatusCode(){
+    responseStatusCode;
+}
+
 /**
  * Makes a RESTful request.
  *
@@ -30,7 +69,13 @@ function requestRestFul({requestAlias, uri, path, httpMethod, pathParams = {}, h
         qs: queryParams,
         failOnStatusCode: false,
         log: log
-    }).as(requestAlias);
+    }).as(requestAlias).then((resp) => {
+        this.setResponseStatusCode(resp.status);
+        this.setResponseBody(resp.body);
+
+        // SET LOG
+        logRest.setRequet(uri, path, reqType, resp.status, resp.body);
+    });
 }
 
 /**
@@ -231,5 +276,11 @@ function buildCollectionParam(param, collectionFormat) {
 }
 
 module.exports = {
-    requestRestFul, requestRestFulWithBody, buildCollectionParam
+    setResponseBody,
+    getResponseBody,
+    setResponseStatusCode,
+    getResponseStatusCode,
+    requestRestFul, 
+    requestRestFulWithBody, 
+    buildCollectionParam
 }
