@@ -70,8 +70,8 @@ function requestRestFul({requestAlias, uri, path, httpMethod, pathParams = {}, h
         failOnStatusCode: false,
         log: log
     }).as(requestAlias).then((resp) => {
-        this.setResponseStatusCode(resp.status);
-        this.setResponseBody(resp.body);
+        setResponseStatusCode(resp.status);
+        setResponseBody(resp.body);
 
         // SET LOG
         logRest.setRequet(uri, path, reqType, resp.status, resp.body);
