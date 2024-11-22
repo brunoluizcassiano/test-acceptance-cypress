@@ -1,6 +1,6 @@
 {
   "name": "test-acceptance-cypress",
-  "version": "1.0.59",
+  "version": "1.0.60",
   "description": "Framework de automação base utilizando cypress",
   "main": "index.js",
   "exports": {
@@ -37,16 +37,19 @@
     }
   },
   "dependencies": {
-    "cypress": "12.17.4",
     "@badeball/cypress-cucumber-preprocessor": "^20.1.1",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.2",
     "ajv": "^8.16.0",
+    "cypress": "12.17.4",
     "cypress-parallel": "^0.14.0",
     "dotenv": "^16.4.5",
     "js-beautify": "^1.15.1",
-    "pdfmake": "^0.2.13",
+    "moment": "^2.29.4",
+    "node-fetch": "2.7.0",
+    "pdfmake": "0.2.13",
     "properties-reader": "^2.3.0",
     "request": "^2.88.2",
-    "typescript": "^5.5.4"
+    "typescript": "^5.5.4",
+    "underscore": "^1.13.4"
   }
 }
