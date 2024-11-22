@@ -1,11 +1,14 @@
 {
   "name": "test-acceptance-cypress",
-  "version": "1.0.60",
+  "version": "1.0.61",
   "description": "Framework de automação base utilizando cypress",
   "main": "index.js",
   "exports": {
     "./schemaWrapper": "./cypress/commom/schema/SchemaWrapper.js",
     "./schemaValidator": "./cypress/commom/schema/SchemaValidator.js",
+    "./commands": "./cypress/support/commands.js",
+    "./commands/plard": "./cypress/support/commands/plard.js",
+    "./cypress-hooks": "./cypress/support/cypress-hooks.js",
     "./package.json": {
       "default": "./package.json"
     }

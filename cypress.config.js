@@ -25,8 +25,6 @@ const fs = require("fs");
 
 module.exports = defineConfig({
   e2e: {
-    supportFile:
-      "./node_modules/test-acceptance-cypress/cypress/support/e2e.js",
     specPattern: "cypress/**/*.feature",
     retries: 0,
     responseTimeout: 30000,
