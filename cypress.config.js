@@ -25,7 +25,7 @@ const fs = require("fs");
 
 module.exports = defineConfig({
   e2e: {
-    specPattern: "cypress/**/*.feature",
+    specPattern: "cypress/e2e/**/*.feature",
     retries: 0,
     responseTimeout: 30000,
     experimentalInteractiveRunEvents: true,
