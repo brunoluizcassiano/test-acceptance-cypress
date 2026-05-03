@@ -1,5 +1,5 @@
 const fs = require("fs");
-const { generateFilePDF } = require("../../commom/pdf/generateFilePDF");
+const { generateFilePDF } = require("../pdf/generateFilePDF");
 const { upPdf } = require("../pdf/uploadPDF");
 
 module.exports = (on, config) => {
