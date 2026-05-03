@@ -8,8 +8,8 @@ module.exports = {
            const idFolder = Cypress.env('folderId');
            const nameProject = Cypress.env('nameProject');
            const dateHours = todayDateHours()
-           const obterAmbiente = Cypress.env('Environment');
-           const ambiente = obterAmbiente.replace(' LZ', '');
+           const obterAmbiente = Cypress.env('Environment') || Cypress.env('ENVIRONMENT') || '';
+           const ambiente = obterAmbiente.replace(' LZ', '').replace('-lz', '');
            const testerName = Cypress.env('testerName');
            const threadID = Math.floor(Math.random() * 1000);
    
