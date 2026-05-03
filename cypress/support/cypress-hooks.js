@@ -8,7 +8,7 @@ module.exports = {
            const idFolder = Cypress.env('folderId');
            const nameProject = Cypress.env('nameProject');
            const dateHours = todayDateHours()
-           const obterAmbiente = Cypress.env('Environment') || Cypress.env('ENVIRONMENT') || '';
+           const obterAmbiente = Cypress.env('ENVIRONMENT') || '';
            const ambiente = obterAmbiente.replace(' LZ', '').replace('-lz', '');
            const testerName = Cypress.env('testerName');
            const threadID = Math.floor(Math.random() * 1000);
@@ -63,7 +63,7 @@ module.exports = {
            after(function () {
                const url = `${Cypress.env('urlZephyr')}${Cypress.env('testexecutions')}`;
                const token = Cypress.env('userTokenZephyr');
-               const ambiente = Cypress.env('Environment');
+               const ambiente = Cypress.env('ENVIRONMENT');
                const jiraProjectId = Cypress.env('jiraProjectId');
                const emailJira = Cypress.env('emailJira');
                const userTokenJira = Cypress.env('userTokenJira');

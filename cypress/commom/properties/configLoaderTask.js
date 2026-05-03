@@ -36,7 +36,7 @@ function assignToProcessEnv(envVars) {
 
 module.exports = (on, config) => {
   // Verifica o ambiente a partir do arquivo .env
-  const environment = process.env.ENVIRONMENT || process.env.Environment; // Lê a variável do .env
+  const environment = process.env.ENVIRONMENT; // Lê a variável do .env
   console.log(`🔄 Ambiente configurado: ${environment}`);
 
   // Verifica o ambiente a partir do arquivo .env
@@ -70,7 +70,6 @@ module.exports = (on, config) => {
   config.env = {
     ...config.env,
     ENVIRONMENT: environment,
-    Environment: environment,
     TRIBE: tribeExecution,
     ...applicationVars,
     ...envVars,
