@@ -71,6 +71,7 @@ module.exports = (on, config) => {
     ...config.env,
     ENVIRONMENT: environment,
     TRIBE: tribeExecution,
+    TAGS: tribeExecution,
     ...applicationVars,
     ...envVars,
     ...tribeVars, // Adiciona as variáveis carregadas ao ambiente do Cypress
