@@ -1,2 +1,35 @@
-node_modules
+#node_module
+node_modules/
+
+#screenschots
+cypress/screenshots/
+
+#documentação da automação
+#docs/
+
+#report
+report/
+
+#temp
+temp/
+
+#fixtures
+cypress/fixtures/
+
+#runner-results
+runner-results/
+
+#tools
+#src/tools/
+
+#secrets.properties
+properties/secrets.properties
+
+#multi-reporter-config
+multi-reporter-config.json
+cypress/parallel-weights.json
+
+# Ignora todos os .jar
+#*.jar
+
 package-lock.json
